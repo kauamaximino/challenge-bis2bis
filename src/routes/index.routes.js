@@ -1,7 +1,9 @@
+const insert = require('./insert.routes');
+const universities = require('./universities.routes');
+
 const router = require('express').Router();
 
-const insert = require('./insert.routes');
+router.use(insert, universities);
 
-router.use(insert);
 
 module.exports = router;
