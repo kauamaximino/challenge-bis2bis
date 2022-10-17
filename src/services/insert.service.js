@@ -1,5 +1,5 @@
 const { Universities } = require('../models/Universities');
-const { getUniversities } = require('../utils/getAllUniversitiesInAPI');
+const { getUniversities } = require('../utils/api/getAllUniversitiesInAPI');
 
 
 const insertInDatabase = async () => {

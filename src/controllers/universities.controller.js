@@ -12,4 +12,20 @@ const getUniversities = async (request, response) => {
   return response.status(200).json(universities);
 }
 
-module.exports = { getUniversities };
+const getUniversityById = async (request, response) => {
+  
+
+  try {
+    const { id } = request.params;
+    const university = await universitiesService.getUniversityById(id);
+  return response.status(200).json(university);
+  } catch(error) {
+    return response.status(404).json({ message: error.message });
+  }
+  
+}
+
+module.exports = {
+  getUniversities,
+  getUniversityById,
+};
