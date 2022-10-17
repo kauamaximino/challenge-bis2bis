@@ -1,11 +1,6 @@
 const insert = require('express').Router();
-const { Universities } = require('../models/Universities');
-const { getUniversities } = require('../models/getAllUniversitiesInAPI');
+const insertController = require('../controllers/insert.controller');
 
-insert.post('/insert-in-database', async (_request, response) => { 
-  const universitys = await Universities.create(await getUniversities());
-  return response.status(201).json(universitys);
-});
-
+insert.post('/insert-in-database', insertController.insertInDatabase);
 
 module.exports = insert;
