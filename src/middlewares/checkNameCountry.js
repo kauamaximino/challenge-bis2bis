@@ -12,11 +12,12 @@ const countries = [
 const  validateNameCountry = (request, response, next) => {
   const { country } = request.query;
 
-  if (!countries.includes(country)) {
-    return response.status(400).json({ message: 'Country not found' });
+  if (country && !countries.includes(country)) {
+    return response.status(400).json({ message: 'Invalid country name' });
   }
+
   next();
-  }  
+}  
 
 
 module.exports = validateNameCountry;
