@@ -14,6 +14,7 @@ const countrys = [
 const getUniversities = async () => {
   const universities = countrys.map(async (country) => {
     const { data } = await axios.get(`http://universities.hipolabs.com/search?country=${country}`);
+    console.log(data);
     return data;
   });
 
