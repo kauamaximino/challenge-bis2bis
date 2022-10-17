@@ -5,4 +5,12 @@ const getAllUniversities = async () => {
   return universities;
 }
 
-module.exports = { getAllUniversities };
+const getUniversitiesByCountry = async (country) => {
+  const universities = await Universities.find({ country }).select('-__v').select('-alpha_two_code').limit(20);
+  return universities;
+}
+
+module.exports = {
+  getAllUniversities,
+  getUniversitiesByCountry
+};
