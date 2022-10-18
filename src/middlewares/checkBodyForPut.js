@@ -1,14 +1,3 @@
-const countries = [
-  "Argentina",
-  "Brazil",
-  "Chile",
-  "Colombia",
-  "Paraguay",
-  "Peru",
-  "Suriname",
-  "Uruguay"
-]
-
 const validateBodyPut = (request, response, next) => {
   const { web_pages, name, domains } = request.body;
 
