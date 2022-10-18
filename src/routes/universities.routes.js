@@ -6,4 +6,6 @@ universities.get('/universities', middlewares.checkNameCountry, universitiesCont
 
 universities.get('/universities/:id', universitiesController.getUniversityById);
 
+universities.post('/universities', middlewares.checkBody, universitiesController.createUniversity);
+
 module.exports = universities;

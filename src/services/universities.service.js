@@ -20,8 +20,22 @@ const getUniversityById = async (id) => {
   }
 }
 
+const createUniversity = async (alpha_two_code, web_pages, name, country, domains) => {
+
+  const verifyUniversity = await Universities.findOne({ name, country });
+
+  if (verifyUniversity) {
+    throw new Error('University already exists');
+  }
+
+  const newUniversity = await Universities.create({ alpha_two_code, web_pages, name, country, domains });
+
+  return newUniversity;
+}
+
 module.exports = {
   getAllUniversities,
   getUniversitiesByCountry,
   getUniversityById,
+  createUniversity,
 };

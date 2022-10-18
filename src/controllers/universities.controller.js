@@ -13,8 +13,6 @@ const getUniversities = async (request, response) => {
 }
 
 const getUniversityById = async (request, response) => {
-  
-
   try {
     const { id } = request.params;
     const university = await universitiesService.getUniversityById(id);
@@ -22,10 +20,20 @@ const getUniversityById = async (request, response) => {
   } catch(error) {
     return response.status(404).json({ message: error.message });
   }
-  
+}
+
+const createUniversity = async (request, response) => {
+  try {
+    const { alpha_two_code, web_pages, name, country, domains } = request.body;
+    const newUniversity = await universitiesService.createUniversity(alpha_two_code, web_pages, name, country, domains);
+    return response.status(201).json(newUniversity);
+  } catch (error) {
+    return response.status(400).json({ message: error.message });
+  }
 }
 
 module.exports = {
   getUniversities,
   getUniversityById,
+  createUniversity,
 };
