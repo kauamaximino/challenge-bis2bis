@@ -43,9 +43,21 @@ const updateUniversity = async (request, response) => {
   }
 }
 
+const deleteUniversity = async (request, response) => {
+  const { id } = request.params;
+  const deleteUniversity = await universitiesService.deleteUniversity(id);
+
+  if (!deleteUniversity) {
+    return response.status(404).json({ message: 'University not found' });
+  }
+  
+  return response.status(204).json({ message: 'successfully deleted' });
+}
+
 module.exports = {
   getUniversities,
   getUniversityById,
   createUniversity,
   updateUniversity,
+  deleteUniversity,
 };

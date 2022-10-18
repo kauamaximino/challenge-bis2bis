@@ -37,10 +37,16 @@ const updateUniversity = async (id, web_pages, name, domains) => {
   return updatedUniversity;
 }
 
+const deleteUniversity = async (id) => {
+  const deleteUniversity = await Universities.findByIdAndDelete(id);
+  return deleteUniversity;
+}
+
 module.exports = {
   getAllUniversities,
   getUniversitiesByCountry,
   getUniversityById,
   createUniversity,
   updateUniversity,
+  deleteUniversity,
 };

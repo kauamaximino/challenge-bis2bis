@@ -10,4 +10,6 @@ universities.post('/universities', middlewares.checkBody, universitiesController
 
 universities.put('/universities/:id', middlewares.checkPut, universitiesController.updateUniversity);
 
+universities.delete('/universities/:id', universitiesController.deleteUniversity);
+
 module.exports = universities;
