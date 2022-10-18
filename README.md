@@ -41,7 +41,7 @@ npm install
 # Execute a aplicação em modo de desenvolvimento
 npm start
 
-# O servidor inciará na porta:3131 - acesse http://localhost:3131  
+# O servidor inciará na porta:3030 - acesse http://localhost:3030  
 
 ```
 </details>
