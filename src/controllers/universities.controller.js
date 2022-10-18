@@ -32,8 +32,20 @@ const createUniversity = async (request, response) => {
   }
 }
 
+const updateUniversity = async (request, response) => {
+  try {
+    const { id } = request.params;
+    const { web_pages, name, domains } = request.body;
+    const updatedUniversity = await universitiesService.updateUniversity(id, web_pages, name, domains);
+    return response.status(200).json(updatedUniversity);
+  } catch (error) {
+    return response.status(400).json({ message: error.message });
+  }
+}
+
 module.exports = {
   getUniversities,
   getUniversityById,
   createUniversity,
+  updateUniversity,
 };

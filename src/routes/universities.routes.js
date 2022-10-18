@@ -8,4 +8,6 @@ universities.get('/universities/:id', universitiesController.getUniversityById);
 
 universities.post('/universities', middlewares.checkBody, universitiesController.createUniversity);
 
+universities.put('/universities/:id', middlewares.checkPut, universitiesController.updateUniversity);
+
 module.exports = universities;

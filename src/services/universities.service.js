@@ -13,7 +13,6 @@ const getUniversitiesByCountry = async (country) => {
 const getUniversityById = async (id) => {
   try {
     const university = await Universities.findById(id).select('-__v').select('-alpha_two_code');
-    console.log(university);
     return university;
   } catch (error) {
     throw new Error('University not found');
@@ -33,9 +32,15 @@ const createUniversity = async (alpha_two_code, web_pages, name, country, domain
   return newUniversity;
 }
 
+const updateUniversity = async (id, web_pages, name, domains) => {
+  const updatedUniversity = await Universities.findByIdAndUpdate(id, { web_pages, name, domains }, { new: true });
+  return updatedUniversity;
+}
+
 module.exports = {
   getAllUniversities,
   getUniversitiesByCountry,
   getUniversityById,
   createUniversity,
+  updateUniversity,
 };
